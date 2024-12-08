@@ -1,0 +1,22 @@
+<h2>Interest Rules</h2>
+<form [formGroup]="ruleForm" (ngSubmit)="addRule()">
+  <input type="date" formControlName="effectiveDate" required />
+  <input type="text" formControlName="ruleId" required/>
+  <input type="number" formControlName="rate" required min="0.01" />
+  <button type="submit">Add Rule</button>
+</form>
+<div>
+  <table>
+    <tr>
+      <th>Rule Id</th>
+      <th>Effective Date</th>
+      <th>Rate</th>
+    </tr>
+    <tr *ngFor="let rule of rules">
+      <td>{{ rule.ruleId }}</td>
+      <td>{{ rule.date }}</td>
+      <td>{{ rule.rate }}</td>
+    </tr>
+  </table>
+</div>
+

@@ -1,0 +1,43 @@
+<div class="statement-container">
+    <h2>Account Statement</h2>
+  
+    <form [formGroup]="statementForm" (ngSubmit)="generateStatement()">
+      <div class="form-group">
+        <label for="account">Account</label>
+        <input id="account" formControlName="account" type="text" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="month">Month (YYYYMM)</label>
+        <input id="month" formControlName="month" type="text" required />
+      </div>
+  
+      <button type="submit" [disabled]="!statementForm.valid">Generate Statement</button>
+    </form>
+  
+    <!-- Display Statement -->
+    <div *ngIf="statementData">
+      <h3>Statement for Account: {{ statementData.account }}</h3>
+      <table class="statement-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Txn Id</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let txn of statementData.transactions">
+            <td>{{ txn.date }}</td>
+            <td>{{ txn.txnId }}</td>
+            <td>{{ txn.type }}</td>
+            <td>{{ txn.amount | currency }}</td>
+            <td>{{ txn.balance | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

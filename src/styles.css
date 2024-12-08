@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+.statement-container {
+    margin: 20px;
+  }
+  
+  .statement-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .statement-table th, .statement-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .statement-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .statement-table td {
+    background-color: #fafafa;
+  }
+  

@@ -1,0 +1,14 @@
+<h2>Accounts</h2>
+<table>
+  <tr>
+    <th>Account ID</th>
+    <th>Balance</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let account of accounts">
+    <td>{{ account.accountId }}</td>
+    <td>{{ account.balance }}</td>
+    <td><button (click)="deleteAccount(account.accountId)">Delete</button></td>
+  </tr>
+</table>
+

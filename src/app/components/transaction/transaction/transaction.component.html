@@ -1,0 +1,26 @@
+<form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Account ID:</label>
+      <input formControlName="accountId" required />
+      <div *ngIf="transactionForm.controls.accountId.invalid && transactionForm.controls.accountId.touched">
+        Account ID is required.
+      </div>
+    </div>
+    <div>
+      <label>Date:</label>
+      <input type="date" formControlName="date" required />
+    </div>
+    <div>
+      <label>Transaction Type:</label>
+      <select formControlName="type" required>
+        <option value="D">Deposit</option>
+        <option value="W">Withdrawal</option>
+      </select>
+    </div>
+    <div>
+      <label>Amount:</label>
+      <input type="number" formControlName="amount" min="0.01" required />
+    </div>
+    <button type="submit" [disabled]="transactionForm.invalid">Submit</button>
+  </form>
+  
